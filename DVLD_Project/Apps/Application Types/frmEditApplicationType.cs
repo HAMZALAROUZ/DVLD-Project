@@ -34,7 +34,7 @@ namespace DVLD_Project.Apps.Application_Types
 
         private void frmEditApplicationType_Load(object sender, EventArgs e)
         {
-            _ApplicationType = clsApplicationType.GetApplicationTypeInfoByID(_AppTypeID);
+            _ApplicationType = clsApplicationType.FindApplicationTypeInfoByID(_AppTypeID);
             if (_ApplicationType != null)
             {
                 SetData();

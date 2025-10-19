@@ -5,9 +5,17 @@ D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Controls.ctrlApplicationBasicIn
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Local_Driving_License.ctrlDrivingLicenseApplicationInfo.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Local_Driving_License.frmAddUpdateLocalDrivingLicesnseApplication.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Local_Driving_License.frmListLocalDrivingLicesnseApplications.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Local_Driving_License.frmLocalDrivingLicenseApplicationInfo.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Renew_Local_License.frmRenewLocalDrivingLicenseApplication.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.ReplaceLostOrDamagedLicense.frmReplaceLostOrDamagedLicenseApplication.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Rlease_Detained_License.frmListDetainedLicenses.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Rlease_Detained_License.frmReleaseDetainedLicenseApplication.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Drivers.frmListDrivers.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.Controls.ctrlDriverLicenses.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.Detain_License.frmDetainLicenseApplication.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.frmShowPersonLicenseHistory.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.Locale_License.Controls.ctrlDriverLicenseInfo.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.Locale_License.Controls.ctrlDriverLicenseInfoWithFilter.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.Locale_License.frmIssueDriverLicenseFirstTime.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.Locale_License.frmShowLicenseInfo.resources
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.ctrlPersonCardWithFilter.resources
@@ -43,5 +51,7 @@ D:\DVLD\DVLD_Project\bin\Debug\DVLD_DataAccess.pdb
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Pro.F4BE20FF.Up2Date
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.exe
 D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.pdb
-D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Drivers.frmListDrivers.resources
-D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.Local_Driving_License.frmLocalDrivingLicenseApplicationInfo.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Apps.International_License.frmNewInternationalLicenseApplication.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.International_Licenses.Controls.ctrlDriverInternationalLicenseInfo.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.International_Licenses.frmShowInternationalLicenseInfo.resources
+D:\DVLD\DVLD_Project\obj\Debug\DVLD_Project.Licenses.International_Licenses.frmListInternationalLicesnseApplications.resources

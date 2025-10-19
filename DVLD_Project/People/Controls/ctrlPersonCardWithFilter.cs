@@ -69,7 +69,10 @@ namespace DVLD_Project
                 return ctrlPersonCard1.PersonID;
             }
         }
-
+        public void FilterFocus()
+        {
+            txtFilterValue.Focus();
+        }
         public clsPerson SelectedPersonInfo
         {
             get { return ctrlPersonCard1.SelectedPersonInfo; }

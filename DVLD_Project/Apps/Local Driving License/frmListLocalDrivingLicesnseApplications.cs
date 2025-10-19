@@ -190,9 +190,9 @@ namespace DVLD_Project.Apps.Local_Driving_License
             ScheduleTestsMenue.Enabled = false;
 
             _LocalDrivingLicenseApp = clsLocalDrivingLicenseApplication.FindByID(LDL_ID);
-            int LicenseID = clsLicense.FindActiveLicenseID(_LocalDrivingLicenseApp.ApplicantPersonID, _LocalDrivingLicenseApp.LicenseClassID);
+            int _LicenseID = clsLicense.FindActiveLicenseID(_LocalDrivingLicenseApp.ApplicantPersonID, _LocalDrivingLicenseApp.LicenseClassID);
 
-            if (LicenseID != -1)
+            if (_LicenseID != -1)
             {
                 issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
                 editToolStripMenuItem.Enabled = false;

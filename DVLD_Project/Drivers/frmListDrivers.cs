@@ -1,5 +1,7 @@
 ﻿using DVLD_Buisness;
 using DVLD_Project.Global_Classes;
+using DVLD_Project.Licenses;
+using DVLD_Project.People;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,6 +122,22 @@ namespace DVLD_Project.Drivers
                 _dtAllDrivers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
 
             lblRecordsCount.Text = dgvDrivers.Rows.Count.ToString();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int _PersonID = (int)dgvDrivers.CurrentRow.Cells[1].Value;
+
+            frmShowPersonInfo frm = new frmShowPersonInfo(_PersonID);
+            frm.ShowDialog();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int _PersonID = (int)dgvDrivers.CurrentRow.Cells[1].Value;
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(_PersonID);
+            frm.ShowDialog();
         }
     }
 }

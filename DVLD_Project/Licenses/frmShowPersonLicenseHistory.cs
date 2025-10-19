@@ -42,10 +42,12 @@ namespace DVLD_Project.Licenses
 
         private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
         {
-            if (obj != -1)
-                ctrlPersonCardWithFilter1.LoadPersonInfo(_PersonID);
-            //else
-                //clear cntrlDriverLicenses
+            int PersonID = obj;
+
+            if (PersonID != -1)
+                ctrlPersonCardWithFilter1.LoadPersonInfo(PersonID);
+            else
+                ctrlDriverLicenses1.Clear();
         }
     }
 }

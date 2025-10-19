@@ -17,6 +17,7 @@ namespace DVLD_Buisness
         public int PersonID { get; set; }
         public int CreatedByUserID { get; set; }
         public DateTime CreatedDate { get; set; }
+        public clsPerson PersonInfo;
 
         public clsDriver()
         {
@@ -25,6 +26,7 @@ namespace DVLD_Buisness
             CreatedByUserID = -1;
             CreatedDate = DateTime.Now;
             Mode = enMode.AddNew;
+            
         }
         clsDriver(int driverID, int personID, int createdByUserID, DateTime createdDate)
         {
@@ -33,6 +35,8 @@ namespace DVLD_Buisness
             this.CreatedByUserID = createdByUserID;
             this.CreatedDate = createdDate;
             this.Mode = enMode.Update;
+
+            PersonInfo = clsPerson.Find(personID);
         }
 
         public static clsDriver GetDriverInfoByDriverID(int driverID)

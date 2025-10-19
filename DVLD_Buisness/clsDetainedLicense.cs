@@ -59,6 +59,7 @@ namespace DVLD_Buisness
             CreatedByUserInfo = clsUser.GetUserInfoByUserID(this.CreatedByUserID);
             ReleasedByUserInfo = clsUser.GetUserInfoByUserID(this.ReleasedByUserID);
             ReleaseApplicationIDInfo = clsApplication.GetApplicationInfoByID(this.ReleaseApplicationID);
+            //LicenseIDInfo = clsLicense.Find(licenseID);
         }
 
         bool _AddNewDetainedLicense()
@@ -71,7 +72,7 @@ namespace DVLD_Buisness
             return clsDetainedLicenseData.UpdateDetainedLicense(this.DetainID, this.LicenseID, this.DetainDate, this.FineFees, this.CreatedByUserID);
         }
 
-        bool Save()
+        public bool Save()
         {
             switch(Mode)
             {

@@ -1,4 +1,5 @@
 ﻿using DVLD_Buisness;
+using DVLD_Project.Global_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ namespace DVLD_Project.Tests.Controls
 {
     public partial class ctrlSecheduledTest : UserControl
     {
-        private int _LDLA_ID = -1;
-        private clsLocalDrivingLicenseApplication _LDLA;
+        private int _LocalDrivingApplicationID = -1;
+        private clsLocalDrivingLicenseApplication _LocalDrivingApplication;
 
-        private clsTestType _TestType;
+        private clsTestType _TestType;       
 
         public ctrlSecheduledTest()
         {
@@ -30,11 +31,11 @@ namespace DVLD_Project.Tests.Controls
             //_LocalDrivingLicenseApp.GetActiveApplicationID(ApplicationTypeID)
             //_LocalDrivingLicenseApp.IsThereAnActiveScheduledTest(testtype)
 
-            lblLocalDrivingLicenseAppID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
-            lblDrivingClass.Text = _LDLA.LicenseClassInfo.ClassName;
-            lblFullName.Text = _LDLA.ApplicantFullName;
-            lblTrial.Text = _LDLA.TotalTrialsPerTest(_TestType.TestTypeID).ToString() + "/3";
-            lblDate.Text = _LDLA.ApplicationDate.ToString();
+            lblLocalDrivingLicenseAppID.Text = _LocalDrivingApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblDrivingClass.Text = _LocalDrivingApplication.LicenseClassInfo.ClassName;
+            lblFullName.Text = _LocalDrivingApplication.ApplicantFullName;
+            lblTrial.Text = _LocalDrivingApplication.TotalTrialsPerTest(_TestType.TestTypeID).ToString() + "/3";
+            lblDate.Text = clsFormat.DateToShort(_LocalDrivingApplication.ApplicationDate);
             lblFees.Text = clsTestType.Find(_TestType.TestTypeID).TestTypeFees.ToString();
 
             lblTestID.Text = "Not Taken Yet";//
@@ -50,19 +51,19 @@ namespace DVLD_Project.Tests.Controls
             lblFees.Text = "[$$$]";
             lblTestID.Text = "Not Taken Yet";
         }
-        public void LoadData(int LDLA_ID,clsTestType.enTestType TestTypeID)
+        public void LoadData(int LocalDrivingApplicationID,clsTestType.enTestType TestTypeID)
         {
             _TestType = clsTestType.Find(TestTypeID); //Test Type
-            _LDLA_ID = LDLA_ID; //Local Driving Application Id
-            _LDLA = clsLocalDrivingLicenseApplication.FindByID(LDLA_ID);//Find Local Driving License Application
+            _LocalDrivingApplicationID = LocalDrivingApplicationID; //Local Driving Application Id
+            _LocalDrivingApplication = clsLocalDrivingLicenseApplication.FindByID(LocalDrivingApplicationID);//Find Local Driving License Application
 
-            if (_LDLA != null)
+            if (_LocalDrivingApplication != null)
             {
                 FillSecheduledWithData();
             }else
             {
                 ResetSecheduled();
-                MessageBox.Show("LDLA ID Not Found","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Local Driving Application ID Not Found", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 

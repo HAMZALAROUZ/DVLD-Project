@@ -118,10 +118,10 @@ namespace DVLD_Project.Tests
             clsApplication _ReNewApp = new clsApplication();
             _ReNewApp.ApplicantPersonID = _LocalDrivingLicenseApp.ApplicantPersonID;
             _ReNewApp.ApplicationDate = DateTime.Now;
-            _ReNewApp.ApplicationTypeID = clsApplicationType.GetApplicationTypeInfoByID(7).ApplicationTypeID;
+            _ReNewApp.ApplicationTypeID = clsApplicationType.FindApplicationTypeInfoByID(7).ApplicationTypeID;
             _ReNewApp.ApplicationStatus = clsApplication.enApplicationStatus.New;
             _ReNewApp.LastStatusDate = DateTime.Now;
-            _ReNewApp.PaidFees = clsApplicationType.GetApplicationTypeInfoByID(7).ApplicationFees;
+            _ReNewApp.PaidFees = clsApplicationType.FindApplicationTypeInfoByID(7).ApplicationFees;
             _ReNewApp.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if(_ReNewApp.Save())

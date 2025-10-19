@@ -58,6 +58,7 @@ namespace DVLD_Buisness
 
             
             DriverInfo = clsDriver.GetDriverInfoByDriverID(_DriverID);
+            
         }
 
         public static clsInternationalLicense Find(int InternationalLicenseID)
@@ -124,18 +125,6 @@ namespace DVLD_Buisness
             return clsInternationalLicenseData.GetAllInternationalLicenses();
         }
 
-        //public static clsInternationalLicense Find(int InternationalLicenseID)
-        //{
-        //    int ApplicationID = -1;
-        //    int DriverID = -1; int IssuedUsingLocalLicenseID = -1;
-        //    DateTime IssueDate = DateTime.Now; DateTime ExpirationDate = DateTime.Now;
-        //    bool IsActive = true; int CreatedByUserID = 1;
-
-        //    if(clsInternationalLicenseData.GetInternationalLicenseInfoByID(InternationalLicenseID,ref ApplicationID,ref DriverID,ref IssuedUsingLocalLicenseID,ref IssueDate,ref ExpirationDate,ref IsActive,ref CreatedByUserID))
-        //    {
-        //        return new clsInternationalLicense(InternationalLicenseID,DriverID,IssuedUsingLocalLicenseID,IssueDate,ExpirationDate,IsActive,ApplicationID,CreatedByUserID);
-        //    }
-        //    return null;
-        //}
+        
     }
 }

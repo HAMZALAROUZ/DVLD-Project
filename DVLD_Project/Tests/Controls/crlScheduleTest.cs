@@ -23,7 +23,7 @@ namespace DVLD_Project.Tests.Controls
         private clsLocalDrivingLicenseApplication _LocalDrivingLicenseApp;
         private int _LocalDrivingLicenseAppID=-1;
 
-        private clsTestType _TestType;//
+        private clsTestType _TestType;//       
         private clsTestType.enTestType _TestTypeID;
 
         private clsApplication _ReNewApp = new clsApplication();//
@@ -109,10 +109,10 @@ namespace DVLD_Project.Tests.Controls
 
             _ReNewApp.ApplicantPersonID = _LocalDrivingLicenseApp.ApplicantPersonID;
             _ReNewApp.ApplicationDate = DateTime.Now;
-            _ReNewApp.ApplicationTypeID = clsApplicationType.GetApplicationTypeInfoByID(7).ApplicationTypeID;
+            _ReNewApp.ApplicationTypeID = clsApplicationType.FindApplicationTypeInfoByID(7).ApplicationTypeID;
             _ReNewApp.ApplicationStatus = clsApplication.enApplicationStatus.New;
             _ReNewApp.LastStatusDate = DateTime.Now;
-            _ReNewApp.PaidFees = clsApplicationType.GetApplicationTypeInfoByID(7).ApplicationFees;
+            _ReNewApp.PaidFees = clsApplicationType.FindApplicationTypeInfoByID(7).ApplicationFees;
             _ReNewApp.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             return _ReNewApp.Save();
@@ -256,7 +256,7 @@ namespace DVLD_Project.Tests.Controls
             if(_CreationMode==enCreationMode.RetakeTestSchedule)
             {
                 //FillRetakeTest();
-                lblRetakeAppFees.Text = clsApplicationType.GetApplicationTypeInfoByID((int)clsApplication.enApplicationType.RetakeTest).ApplicationFees.ToString();
+                lblRetakeAppFees.Text = clsApplicationType.FindApplicationTypeInfoByID((int)clsApplication.enApplicationType.RetakeTest).ApplicationFees.ToString();
                 gbRetakeTestInfo.Enabled = true;
                 lblTitle.Text = "Schedule Retake Test";
                 lblRetakeTestAppID.Text = "0";
@@ -290,7 +290,7 @@ namespace DVLD_Project.Tests.Controls
                 if (!_LoadTestAppointmentData())
                     return;
             }
-
+            
             if (!_HandleActiveTestAppointmentConstraint())
                 return;
 
@@ -446,7 +446,7 @@ namespace DVLD_Project.Tests.Controls
                 Application.ApplicationTypeID = (int)clsApplication.enApplicationType.RetakeTest;
                 Application.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
                 Application.LastStatusDate = DateTime.Now;
-                Application.PaidFees = clsApplicationType.GetApplicationTypeInfoByID((int)clsApplication.enApplicationType.RetakeTest).ApplicationFees;
+                Application.PaidFees = clsApplicationType.FindApplicationTypeInfoByID((int)clsApplication.enApplicationType.RetakeTest).ApplicationFees;
                 Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
                 if (!Application.Save())

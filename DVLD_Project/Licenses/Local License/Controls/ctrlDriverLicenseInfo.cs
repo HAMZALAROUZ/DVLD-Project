@@ -50,7 +50,7 @@ namespace DVLD_Project.Licenses.Locale_License.Controls
             lblIsDetained.Text = _license.IsDetained ? "Yes" : "No";
         }
 
-        private void ResetDriverLicenseInfo()
+        private void DefaultValues()
         {
             lblClass.Text = "[???]";
             lblFullName.Text = "[????]";
@@ -93,16 +93,16 @@ namespace DVLD_Project.Licenses.Locale_License.Controls
             _license = clsLicense.Find(LicenseID);
             
             
-            _Person = clsPerson.Find(_license.DriverInfo.PersonID);                                   
 
-            if( _license != null && _Person != null)
+            if( _license != null)
             {
+                _Person = clsPerson.Find(_license.DriverInfo.PersonID);                                   
                 FillDriverLicenseInfo();
                 _LoadPersonImage();
             }
             else
             {
-                ResetDriverLicenseInfo();
+                DefaultValues();
                 MessageBox.Show("Sorry Driver License Not Found","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }

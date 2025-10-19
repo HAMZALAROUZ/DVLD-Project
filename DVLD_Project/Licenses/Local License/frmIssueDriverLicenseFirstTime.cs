@@ -14,11 +14,15 @@ namespace DVLD_Project.Licenses.Locale_License
 {
     public partial class frmIssueDriverLicenseFirstTime : Form
     {
-        public frmIssueDriverLicenseFirstTime(int LDL_ID)
+        private int _LocalDrivingLicenseApplicationID;
+        private clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
+        public frmIssueDriverLicenseFirstTime(int LocalDrivingLicenseApplicationID)
         {
             InitializeComponent();
-            ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(LDL_ID);
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            //ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(LocalDrivingLicenseApplicationID);
         }
+
         clsLicense _License = new clsLicense();
         clsDriver _Driver = new clsDriver();
         private void btnClose_Click(object sender, EventArgs e)
@@ -67,8 +71,8 @@ namespace DVLD_Project.Licenses.Locale_License
         }
         private void btnIssueLicense_Click(object sender, EventArgs e)
         {
-            //I have to think about some conditions
-            //if i have already a driver with same personid do allow to add or driver table just once
+            //I have to add check if person is already a driver in the system
+            /*
             FillDriverInfo();
 
             if (!_Driver.Save())
@@ -90,6 +94,58 @@ namespace DVLD_Project.Licenses.Locale_License
             {
                 MessageBox.Show("_License Failed To Save", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
+            int LicenseID = _LocalDrivingLicenseApplication.IssueLicenseForTheFirtTime(txtNotes.Text.Trim(), clsGlobal.CurrentUser.UserID);
+
+            if (LicenseID != -1)
+            {
+                MessageBox.Show("License Issued Successfully with License ID = " + LicenseID.ToString(),
+                    "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("License Was not Issued ! ",
+                 "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void frmIssueDriverLicenseFirstTime_Load(object sender, EventArgs e)
+        {
+            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByID(_LocalDrivingLicenseApplicationID);
+
+            if (_LocalDrivingLicenseApplication == null)
+            {
+
+                MessageBox.Show("No Applicaiton with ID=" + _LocalDrivingLicenseApplicationID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+
+            if (!_LocalDrivingLicenseApplication.PassedAllTests())
+            {
+
+                MessageBox.Show("Person Should Pass All Tests First.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            int LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+
+                MessageBox.Show("Person already has License before with License ID=" + LicenseID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+
+            }
+
+            ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
+
         }
     }
 }

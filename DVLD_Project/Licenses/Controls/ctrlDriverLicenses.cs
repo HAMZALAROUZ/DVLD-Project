@@ -90,6 +90,11 @@ namespace DVLD_Project.Licenses.Controls
         {
             _Driver = clsDriver.GetDriverInfoByPersonID(PersonID);
 
+            if (_Driver == null)
+            {
+                return;
+            }
+
             if (_Driver != null)
             {
                 _DriverID = _Driver.DriverID;
@@ -103,12 +108,20 @@ namespace DVLD_Project.Licenses.Controls
             _DriverID = DriverID;
             _Driver = clsDriver.GetDriverInfoByDriverID(DriverID);
 
+            if(_Driver == null)
+            {
+                return;
+            }
 
             _LoadLocalLicenseInfo();
             _LoadInternationalLicenseInfo();
 
         }
-
+        public void Clear()
+        {
+            _dtDriverLocalLicensesHistory.Clear();
+            _dtDriverInternationalLicensesHistory.Clear();
+        }
         private void tcDriverLicenses_SelectedIndexChanged(object sender, EventArgs e)
         {
            

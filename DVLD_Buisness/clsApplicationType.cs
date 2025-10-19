@@ -34,7 +34,18 @@ namespace DVLD_Buisness
             this.Mode = enMode.Update;
         }
 
-        public static clsApplicationType GetApplicationTypeInfoByID(int applicationTypeID)
+        public static clsApplicationType FindApplicationTypeInfoByType(clsApplication.enApplicationType applicationType)
+        {
+            string applicationTypeTitle = "";
+            float applicationFees = -1;
+
+            if (clsApplicationTypeData.GetApplicationTypeInfoByID((int)applicationType, ref applicationTypeTitle, ref applicationFees))
+            {
+                return new clsApplicationType((int)applicationType, applicationTypeTitle, applicationFees);
+            }
+            return null;
+        }
+        public static clsApplicationType FindApplicationTypeInfoByID(int applicationTypeID)
         {
             string applicationTypeTitle = "";
             float applicationFees = -1;

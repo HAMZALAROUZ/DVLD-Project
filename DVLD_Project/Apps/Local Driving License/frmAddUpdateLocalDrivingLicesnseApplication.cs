@@ -17,11 +17,12 @@ namespace DVLD_Project.Apps.Local_Driving_License
         private enum _enMode { _Addnew=0,_Update=1}
         private _enMode Mode = _enMode._Addnew;
 
+        private int _SelectedPersonID = -1;
         private int _LDLA_ID = -1;
         private clsLocalDrivingLicenseApplication _LDLA = new clsLocalDrivingLicenseApplication();
 
         //I do this To get Fees Of this Application
-        clsApplicationType AppType = clsApplicationType.GetApplicationTypeInfoByID(1);
+        clsApplicationType AppType = clsApplicationType.FindApplicationTypeInfoByID(1);
 
         //for add new
         public frmAddUpdateLocalDrivingLicesnseApplication()
@@ -172,6 +173,16 @@ namespace DVLD_Project.Apps.Local_Driving_License
             
             
 
+        }
+
+        private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
+        {
+            _SelectedPersonID = obj;
+        }
+
+        private void frmAddUpdateLocalDrivingLicesnseApplication_Activated(object sender, EventArgs e)
+        {
+            ctrlPersonCardWithFilter1.FilterFocus();
         }
     }
 }

@@ -78,7 +78,7 @@ namespace DVLD_Buisness
             this.LastStatusDate = lastStatusDate;
             this.PaidFees = paidFees;
             this.CreatedByUserID = createdByUserID;
-            this.ApplicationTypeInfo = clsApplicationType.GetApplicationTypeInfoByID(applicationTypeID);
+            this.ApplicationTypeInfo = clsApplicationType.FindApplicationTypeInfoByID(applicationTypeID);
             this.CreatedByUserInfo = clsUser.GetUserInfoByUserID(createdByUserID);
         }
 

@@ -48,11 +48,13 @@
             // 
             // crlScheduleTest1
             // 
+            this.crlScheduleTest1.EnableRetake = false;
             this.crlScheduleTest1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crlScheduleTest1.Location = new System.Drawing.Point(19, 12);
             this.crlScheduleTest1.Name = "crlScheduleTest1";
             this.crlScheduleTest1.Size = new System.Drawing.Size(690, 802);
             this.crlScheduleTest1.TabIndex = 0;
+            this.crlScheduleTest1.TestTypeID = DVLD_Buisness.clsTestType.enTestType.VisionTest;
             this.crlScheduleTest1.Load += new System.EventHandler(this.crlScheduleTest1_Load);
             // 
             // frmScheduleTest
